@@ -10,6 +10,8 @@ import UIKit
 
 class StoreTableViewController: UITableViewController {
 
+    var products: [Product] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,13 @@ class StoreTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        products = [
+            Product(title: "iPhone", description: "The first iPhone", price: 100),
+            Product(title: "iPhone 3G", description: "The second iPhone", price: 200),
+            Product(title: "iPhone 3GS", description: "The thirdh iPhone", price: 300)
+        ]
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -30,14 +39,19 @@ class StoreTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return products.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! ProductTableViewCell
 
         // Configure the cell...
-
+        let product = products[indexPath.row]
+        cell.productTitleLabel.text = product.title
+        cell.productDescriptionLabel.text = product.description
+        cell.productPriceLabel.text = "\(product.price)"
+//        cell.productImageView.image = product.image
+        
         return cell
     }
 
