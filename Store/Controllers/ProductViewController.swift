@@ -10,10 +10,21 @@ import UIKit
 
 class ProductViewController: UIViewController {
 
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var productTitleLabel: UILabel!
+    @IBOutlet weak var productDescriptionLabel: UILabel!
+    @IBOutlet weak var productPriceLabel: UILabel!
+
+    var product: Product?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        productTitleLabel.text = product?.title
+        productDescriptionLabel.text = product?.description
+        productPriceLabel.text = "\(product?.price ?? 0)"
+        //productImageView.image = product.image
     }
     
 
