@@ -10,7 +10,6 @@
 		09067283228FEDB600E6B1A8 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09067282228FEDB600E6B1A8 /* ProductTableViewCell.swift */; };
 		09067286228FF22900E6B1A8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09067285228FF22900E6B1A8 /* Product.swift */; };
 		0909EED4228DEB2B004FCF87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0909EED3228DEB2B004FCF87 /* AppDelegate.swift */; };
-		0909EED6228DEB2B004FCF87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0909EED5228DEB2B004FCF87 /* ViewController.swift */; };
 		0909EED9228DEB2B004FCF87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0909EED7228DEB2B004FCF87 /* Main.storyboard */; };
 		0909EEDC228DEB2B004FCF87 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0909EEDA228DEB2B004FCF87 /* Store.xcdatamodeld */; };
 		0909EEDE228DEB43004FCF87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0909EEDD228DEB43004FCF87 /* Assets.xcassets */; };
@@ -24,7 +23,6 @@
 		09067285228FF22900E6B1A8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0909EED0228DEB2B004FCF87 /* Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0909EED3228DEB2B004FCF87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0909EED5228DEB2B004FCF87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0909EED8228DEB2B004FCF87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0909EEDB228DEB2B004FCF87 /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
 		0909EEDD228DEB43004FCF87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				09067281228FED8200E6B1A8 /* Views */,
 				0909EEE8228DED5F004FCF87 /* Controllers */,
 				0909EED3228DEB2B004FCF87 /* AppDelegate.swift */,
-				0909EED5228DEB2B004FCF87 /* ViewController.swift */,
 				0909EED7228DEB2B004FCF87 /* Main.storyboard */,
 				0909EEDD228DEB43004FCF87 /* Assets.xcassets */,
 				0909EEDF228DEB43004FCF87 /* LaunchScreen.storyboard */,
@@ -176,7 +173,6 @@
 			files = (
 				0909EEDC228DEB2B004FCF87 /* Store.xcdatamodeld in Sources */,
 				0909EEEA228DEDB2004FCF87 /* StoreTableViewController.swift in Sources */,
-				0909EED6228DEB2B004FCF87 /* ViewController.swift in Sources */,
 				0909EEEC228DEDE4004FCF87 /* ProductViewController.swift in Sources */,
 				0909EED4228DEB2B004FCF87 /* AppDelegate.swift in Sources */,
 				09067283228FEDB600E6B1A8 /* ProductTableViewCell.swift in Sources */,

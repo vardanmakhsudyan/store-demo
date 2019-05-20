@@ -10,13 +10,13 @@ import Foundation
 
 class Product {
     var title: String
-    var description: String = ""
+    var count: Int
     var price: Double
     var image: String?
     
-    init(title: String, description: String, price: Double, image: String? = nil) {
+    init(title: String, count: Int, price: Double, image: String? = nil) {
         self.title = title
-        self.description = description
+        self.count = count
         self.price = price
         self.image = image
     }

@@ -19,12 +19,11 @@ class StoreTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         products = [
-            Product(title: "iPhone", description: "The first iPhone", price: 100),
-            Product(title: "iPhone 3G", description: "The second iPhone", price: 200),
-            Product(title: "iPhone 3GS", description: "The thirdh iPhone", price: 300)
+            Product(title: "iPhone", count: 5, price: 100),
+            Product(title: "iPhone 3G", count: 3, price: 200),
+            Product(title: "iPhone 3GS", count: 2, price: 300)
         ]
         
         tableView.reloadData()
@@ -48,15 +47,11 @@ class StoreTableViewController: UITableViewController {
         // Configure the cell...
         let product = products[indexPath.row]
         cell.productTitleLabel.text = product.title
-        cell.productDescriptionLabel.text = product.description
+        cell.productCountLabel.text = "\(product.count)"
         cell.productPriceLabel.text = "\(product.price)"
 //        cell.productImageView.image = product.image
         
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -115,4 +110,8 @@ class StoreTableViewController: UITableViewController {
         }
     }
 
+    @IBAction func addAction(_ sender: Any) {
+        performSegue(withIdentifier: "ProductDetails", sender: nil)
+    }
+    
 }

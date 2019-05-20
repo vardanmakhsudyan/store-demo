@@ -11,9 +11,9 @@ import UIKit
 class ProductViewController: UIViewController {
 
     @IBOutlet weak var productImageView: UIImageView!
-    @IBOutlet weak var productTitleLabel: UILabel!
-    @IBOutlet weak var productDescriptionLabel: UILabel!
-    @IBOutlet weak var productPriceLabel: UILabel!
+    @IBOutlet weak var productTitleTextField: UITextField!
+    @IBOutlet weak var productPriceTextField: UITextField!
+    @IBOutlet weak var productCountTextField: UITextField!
 
     var product: Product?
     
@@ -21,21 +21,9 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        productTitleLabel.text = product?.title
-        productDescriptionLabel.text = product?.description
-        productPriceLabel.text = "\(product?.price ?? 0)"
+        productTitleTextField.text = product?.title
+        productCountTextField.text = "\(product?.count ?? 0)"
+        productPriceTextField.text = "\(product?.price ?? 0)"
         //productImageView.image = product.image
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
