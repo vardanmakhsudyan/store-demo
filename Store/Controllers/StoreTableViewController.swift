@@ -8,9 +8,22 @@
 
 import UIKit
 
-class StoreTableViewController: UITableViewController, ProductViewControllerDelegate {
+class StoreTableViewController: UITableViewController, UISearchBarDelegate, ProductViewControllerDelegate {
 
     var products: [Product] = []
+    
+    var filteredProducts: [Product]  {
+        return products.filter({ (product) -> Bool in
+            if searchKeyword.isEmpty { return true }
+            return product.title.localizedCaseInsensitiveContains(searchKeyword)
+        })
+    }
+    
+    var searchKeyword = "" {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,19 +34,30 @@ class StoreTableViewController: UITableViewController, ProductViewControllerDele
             Product(title: "iPhone XS Max", count: 2, price: 1199)
         ]
         
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        tableView.tableHeaderView = searchBar
+        
         tableView.reloadData()
+    }
+
+    // MARK: - UISearchBarDelegate
+    
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchKeyword = searchBar.text ?? ""
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return filteredProducts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! ProductTableViewCell
 
-        let product = products[indexPath.row]
+        let product = filteredProducts[indexPath.row]
         cell.productTitleLabel.text = product.title
         cell.productCountLabel.text = "\(product.count)"
         cell.productPriceLabel.text = "$\(product.price)"
@@ -42,7 +66,7 @@ class StoreTableViewController: UITableViewController, ProductViewControllerDele
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let product = products[indexPath.row]
+        let product = filteredProducts[indexPath.row]
         performSegue(withIdentifier: "ProductDetails", sender: product)
     }
 
