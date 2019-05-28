@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nFP-iO-WcE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KWS-BR-5BL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -89,12 +89,24 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="0gJ-Yj-OVi" kind="show" identifier="ProductDetails" id="nFL-Ll-5AO"/>
+                        <segue destination="0gJ-Yj-OVi" kind="showDetail" identifier="ProductDetails" id="mXX-XB-Ecc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qL2-b5-fUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1056.8" y="125.4872563718141"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="7mz-Ec-eUG">
+            <objects>
+                <splitViewController id="KWS-BR-5BL" customClass="SplitViewController" customModule="Store" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="nFP-iO-WcE" kind="relationship" relationship="masterViewController" id="3Xi-8G-VNu"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o5Q-xo-Ohi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-494" y="125"/>
         </scene>
         <!--Product View Controller-->
         <scene sceneID="X51-zj-ULE">
@@ -179,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bN8-aV-Vbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832.8" y="124.58770614692655"/>
+            <point key="canvasLocation" x="1868" y="125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r6h-DS-qb7">

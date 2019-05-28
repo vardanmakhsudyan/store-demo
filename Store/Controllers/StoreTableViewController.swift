@@ -68,14 +68,14 @@ class StoreTableViewController: UITableViewController, ProductViewControllerDele
     func product(viewController: ProductViewController, didAddProduct product: Product) {
         products.append(product)
         tableView.reloadData()
-        navigationController?.popViewController(animated: true)
+        closeDetail()
     }
     
     func product(viewController: ProductViewController, didUpdateProduct product: Product) {
         if let index = products.firstIndex(where: { $0 === product }) {
             products[index] = product
             tableView.reloadData()
-            navigationController?.popViewController(animated: true)
+            closeDetail()
         }
     }
     
@@ -83,7 +83,18 @@ class StoreTableViewController: UITableViewController, ProductViewControllerDele
         if let index = products.firstIndex(where: { $0 === product }) {
             products.remove(at: index)
             tableView.reloadData()
-            navigationController?.popViewController(animated: true)
+            closeDetail()
         }
+    }
+    
+    func closeDetail() {
+        navigationController?.popViewController(animated: true)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            splitViewController?.showDetailViewController(createEmptyViewController(), sender: self)
+        }
+    }
+    
+    func createEmptyViewController() -> UIViewController {
+        return UIViewController()
     }
 }

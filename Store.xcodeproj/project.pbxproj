@@ -16,6 +16,7 @@
 		0909EEE1228DEB43004FCF87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0909EEDF228DEB43004FCF87 /* LaunchScreen.storyboard */; };
 		0909EEEA228DEDB2004FCF87 /* StoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0909EEE9228DEDB2004FCF87 /* StoreTableViewController.swift */; };
 		0909EEEC228DEDE4004FCF87 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0909EEEB228DEDE3004FCF87 /* ProductViewController.swift */; };
+		09F6B6D5229D431100C086DA /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F6B6D4229D431100C086DA /* SplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		0909EEE2228DEB43004FCF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0909EEE9228DEDB2004FCF87 /* StoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewController.swift; sourceTree = "<group>"; };
 		0909EEEB228DEDE3004FCF87 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		09F6B6D4229D431100C086DA /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,9 @@
 		0909EEE8228DED5F004FCF87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0909EEE9228DEDB2004FCF87 /* StoreTableViewController.swift */,
+				09F6B6D4229D431100C086DA /* SplitViewController.swift */,
 				0909EEEB228DEDE3004FCF87 /* ProductViewController.swift */,
+				0909EEE9228DEDB2004FCF87 /* StoreTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0909EEDC228DEB2B004FCF87 /* Store.xcdatamodeld in Sources */,
+				09F6B6D5229D431100C086DA /* SplitViewController.swift in Sources */,
 				0909EEEA228DEDB2004FCF87 /* StoreTableViewController.swift in Sources */,
 				0909EEEC228DEDE4004FCF87 /* ProductViewController.swift in Sources */,
 				0909EED4228DEB2B004FCF87 /* AppDelegate.swift in Sources */,
