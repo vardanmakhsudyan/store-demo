@@ -23,6 +23,8 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var productPriceTextField: UITextField!
     @IBOutlet weak var productCountTextField: UITextField!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var product: Product?
     
     override func viewDidLoad() {
@@ -35,22 +37,40 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func saveTrigger(_ sender: Any) {
-        let title = productTitleTextField.text ?? ""
-        let price = Double(productPriceTextField.text ?? "") ?? 0.0
-        let count = Int(productCountTextField.text ?? "") ?? 0
-        
-        if product != nil {
-            product?.title = title
-            product?.price = price
-            product?.count = count
-            delegate?.product(viewController: self, didUpdateProduct: product!)
-        } else {
-            let newProduct = Product(title: title, count: count, price: price)
-            delegate?.product(viewController: self, didAddProduct: newProduct)
+        startLoading()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.stopLoading()
+            let title = self.productTitleTextField.text ?? ""
+            let price = Double(self.productPriceTextField.text ?? "") ?? 0.0
+            let count = Int(self.productCountTextField.text ?? "") ?? 0
+            
+            if self.product != nil {
+                self.product?.title = title
+                self.product?.price = price
+                self.product?.count = count
+                self.delegate?.product(viewController: self, didUpdateProduct: self.product!)
+            } else {
+                let newProduct = Product(title: title, count: count, price: price)
+                self.delegate?.product(viewController: self, didAddProduct: newProduct)
+            }
         }
     }
     
     @IBAction func deleteTrigger(_ sender: Any) {
-        delegate?.product(viewController: self, didRemoveProduct: product)
+        startLoading()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.stopLoading()
+            self.delegate?.product(viewController: self, didRemoveProduct: self.product)
+        }
+    }
+    
+    func startLoading() {
+        activityIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
+    }
+    
+    func stopLoading() {
+        activityIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
     }
 }

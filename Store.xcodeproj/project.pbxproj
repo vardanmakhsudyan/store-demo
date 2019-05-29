@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09067283228FEDB600E6B1A8 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09067282228FEDB600E6B1A8 /* ProductTableViewCell.swift */; };
 		09067286228FF22900E6B1A8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09067285228FF22900E6B1A8 /* Product.swift */; };
+		0906EE5F229F0E490074BB21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906EE5E229F0E490074BB21 /* CoreDataManager.swift */; };
 		0909EED4228DEB2B004FCF87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0909EED3228DEB2B004FCF87 /* AppDelegate.swift */; };
 		0909EED9228DEB2B004FCF87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0909EED7228DEB2B004FCF87 /* Main.storyboard */; };
 		0909EEDC228DEB2B004FCF87 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0909EEDA228DEB2B004FCF87 /* Store.xcdatamodeld */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		09067282228FEDB600E6B1A8 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		09067285228FF22900E6B1A8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		0906EE5E229F0E490074BB21 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0909EED0228DEB2B004FCF87 /* Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0909EED3228DEB2B004FCF87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0909EED8228DEB2B004FCF87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,9 +58,18 @@
 		09067284228FF21100E6B1A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0909EEDA228DEB2B004FCF87 /* Store.xcdatamodeld */,
 				09067285228FF22900E6B1A8 /* Product.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0906EE5D229F0E330074BB21 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0906EE5E229F0E490074BB21 /* CoreDataManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		0909EEC7228DEB2B004FCF87 = {
@@ -80,6 +91,7 @@
 		0909EED2228DEB2B004FCF87 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				0906EE5D229F0E330074BB21 /* Managers */,
 				09067284228FF21100E6B1A8 /* Models */,
 				09067281228FED8200E6B1A8 /* Views */,
 				0909EEE8228DED5F004FCF87 /* Controllers */,
@@ -88,7 +100,6 @@
 				0909EEDD228DEB43004FCF87 /* Assets.xcassets */,
 				0909EEDF228DEB43004FCF87 /* LaunchScreen.storyboard */,
 				0909EEE2228DEB43004FCF87 /* Info.plist */,
-				0909EEDA228DEB2B004FCF87 /* Store.xcdatamodeld */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -180,6 +191,7 @@
 				0909EEEC228DEDE4004FCF87 /* ProductViewController.swift in Sources */,
 				0909EED4228DEB2B004FCF87 /* AppDelegate.swift in Sources */,
 				09067283228FEDB600E6B1A8 /* ProductTableViewCell.swift in Sources */,
+				0906EE5F229F0E490074BB21 /* CoreDataManager.swift in Sources */,
 				09067286228FF22900E6B1A8 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

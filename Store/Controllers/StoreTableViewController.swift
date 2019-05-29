@@ -10,12 +10,13 @@ import UIKit
 
 class StoreTableViewController: UITableViewController, UISearchBarDelegate, ProductViewControllerDelegate {
 
-    var products: [Product] = []
+    var products: [ProductModel] = []
+    var selectedProduct: ProductModel?
     
-    var filteredProducts: [Product]  {
+    var filteredProducts: [ProductModel]  {
         return products.filter({ (product) -> Bool in
-            if searchKeyword.isEmpty { return true }
-            return product.title.localizedCaseInsensitiveContains(searchKeyword)
+            guard let title = product.title, !searchKeyword.isEmpty else { return true }
+            return title.localizedCaseInsensitiveContains(searchKeyword)
         })
     }
     
@@ -28,17 +29,16 @@ class StoreTableViewController: UITableViewController, UISearchBarDelegate, Prod
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        products = [
-            Product(title: "iPhone X", count: 5, price: 799),
-            Product(title: "iPhone XS", count: 3, price: 999),
-            Product(title: "iPhone XS Max", count: 2, price: 1199)
-        ]
-        
         let searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.sizeToFit()
         tableView.tableHeaderView = searchBar
         
+        fetchProducts()
+    }
+    
+    func fetchProducts() {
+        products = CoreDataManager.fetchObjects()
         tableView.reloadData()
     }
 
@@ -66,8 +66,11 @@ class StoreTableViewController: UITableViewController, UISearchBarDelegate, Prod
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let product = filteredProducts[indexPath.row]
-        performSegue(withIdentifier: "ProductDetails", sender: product)
+        selectedProduct = filteredProducts[indexPath.row]
+        if let selectedProduct = selectedProduct {
+            let product = Product(productModel: selectedProduct)
+            performSegue(withIdentifier: "ProductDetails", sender: product)
+        }
     }
 
     // MARK: - Navigation
@@ -90,25 +93,27 @@ class StoreTableViewController: UITableViewController, UISearchBarDelegate, Prod
     
     // ProductViewControllerDelegate
     func product(viewController: ProductViewController, didAddProduct product: Product) {
-        products.append(product)
-        tableView.reloadData()
+        _ = CoreDataManager.saveObject(product: product)
+        fetchProducts()
         closeDetail()
     }
     
     func product(viewController: ProductViewController, didUpdateProduct product: Product) {
-        if let index = products.firstIndex(where: { $0 === product }) {
-            products[index] = product
-            tableView.reloadData()
-            closeDetail()
+        if let selectedProduct = selectedProduct {
+            _ = CoreDataManager.updateObject(product: selectedProduct, newProduct: product)
+            fetchProducts()
         }
+        closeDetail()
+        selectedProduct = nil
     }
     
     func product(viewController: ProductViewController, didRemoveProduct product: Product?) {
-        if let index = products.firstIndex(where: { $0 === product }) {
-            products.remove(at: index)
-            tableView.reloadData()
-            closeDetail()
+        if let selectedProduct = selectedProduct {
+            _ = CoreDataManager.removeObject(model: selectedProduct)
+            fetchProducts()
         }
+        closeDetail()
+        selectedProduct = nil
     }
     
     func closeDetail() {

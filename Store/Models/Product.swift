@@ -20,4 +20,11 @@ class Product {
         self.price = price
         self.image = image
     }
+    
+    convenience init(productModel: ProductModel) {
+        self.init(title: productModel.title ?? "",
+                  count: Int(productModel.count),
+                  price: productModel.price,
+                  image: productModel.image)
+    }
 }
